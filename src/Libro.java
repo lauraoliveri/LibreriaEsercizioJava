@@ -1,15 +1,63 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.ArrayList;
+import java.util.List;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+// Classe Libro
+class Libro {
+    private String titolo;
+    private String autore;
+    private int annoPubblicazione;
+    private boolean disponibile;
+
+
+    // Costruttore
+    public Libro(String titolo, String autore, int annoPubblicazione) {
+       this.titolo = titolo;
+       this.autore = autore;
+       this.annoPubblicazione = annoPubblicazione;
+       disponibile = true;
+    }
+
+
+    // Metodo per ottenere i dettagli del libro
+    public String dettagliLibro() {
+
+        return "Libro{" +
+                "titolo='" + titolo + '\'' +
+                ", autore='" + autore + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", disponibile=" + disponibile +
+                '}';
+
+    }
+
+    // Metodo per prestare un libro
+    public void prestareLibro() {
+
+        if (disponibile){
+            disponibile = false;
         }
     }
+
+    // Metodo per restituire un libro
+    public void restituireLibro() {
+
+        disponibile = true;
+    }
+
+    // Getter per titolo (usato nella ricerca)
+
+    public String getTitolo() {
+        return titolo;
+    }
+
+    public boolean isDisponibile() {
+
+        if (disponibile){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
